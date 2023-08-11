@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:todo_app/controller/task_controller.dart';
+import 'package:todo_app/controller/home_controller.dart';
 import 'package:todo_app/database/database_helper.dart';
 import 'package:todo_app/model/task_data.dart';
 import 'package:todo_app/view/home_screen.dart';
+import 'package:todo_app/widgets/toast.dart';
 
 class AddToDoController extends GetxController {
   TaskData? editTaskData ;
@@ -49,7 +50,8 @@ class AddToDoController extends GetxController {
 
   Future<void> addTask() async {
     await database.insert(TaskData(title: titleController!.text, description: descriptionController!.text , priorityLevel:  priorityLevel.value, dueDate: dueDateController!.text ));
-    Get.delete<TaskController>();
+    Get.delete<HomeController>();
+    toastFunction(message: "To Do created successfully");
     Get.offAll(()=>HomePage());
   }
 
@@ -58,7 +60,8 @@ class AddToDoController extends GetxController {
   Future<void> updateTask() async {
     await database.update(TaskData(id: editTaskData!.id,title: titleController!.text, description: descriptionController!.text , priorityLevel: priorityLevel.value ,
         dueDate: dueDateController!.text ));
-    Get.delete<TaskController>();
+    Get.delete<HomeController>();
+    toastFunction(message: "To Do updated successfully");
     Get.offAll(()=>HomePage());
   }
 

@@ -17,6 +17,7 @@ class AddToDo extends GetView<AddToDoController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(elevation: 0,),
       backgroundColor: Colors.indigo,
       body: Container(
           margin: const EdgeInsets.symmetric(horizontal: 20,vertical: 20),
@@ -29,7 +30,7 @@ class AddToDo extends GetView<AddToDoController> {
       child: SizedBox(
         height: MediaQuery.of(context).size.height/1.5,
         child: Card(
-          margin: const EdgeInsets.symmetric(horizontal: 20,vertical: 20),
+          margin: const EdgeInsets.symmetric(horizontal: 20),
           child: Form(
             key: _formKey,
             child: ListView(
@@ -41,7 +42,7 @@ class AddToDo extends GetView<AddToDoController> {
                   hintText: 'Title',
                 ),
                 TextFormFieldWidget(
-                  maxLength: 50,
+                  maxLength: 255,
                   controller: addToDoController.descriptionController,
                   hintText: 'Description',
                     textInputAction : TextInputAction.done
