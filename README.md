@@ -28,7 +28,7 @@ For saving the users data used the SQFLITE Data base. Search and sorting feature
 Download or clone this repo by using the link below:
 
 ```
-https://github.com/Chandani10/to_do_app.git
+https://github.com/Chandani10/to-do-app.git
 
 ```
 
